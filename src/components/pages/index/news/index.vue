@@ -1,9 +1,6 @@
 <template>
     <div>
-        <ul>
-            <li>首页</li>
-            <li>新闻页面</li>
-        </ul>
+        新闻页面
     </div>
 </template>
 
@@ -11,7 +8,6 @@
     export default{
         name:"index"
     }
-
 </script>
 
 <style scoped>

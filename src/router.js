@@ -2,6 +2,7 @@ import Vue from 'vue';
 //引入路由
 import Router from 'vue-router';
 import IndexPage from './components/pages/index/index.vue'
+import NewsPage from './components/pages/index/news/index.vue'
 
 Vue.use(Router);   //装载路由
 
@@ -13,6 +14,11 @@ let router=new Router({
             path:'/',
             name:"index",
             component:IndexPage
+        },
+        {
+            path:"/news",
+            name:"news",
+            component:NewsPage
         }
     ]
 });
