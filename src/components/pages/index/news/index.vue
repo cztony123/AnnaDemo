@@ -1,6 +1,6 @@
 <template>
     <div>
-        新闻页面
+        新闻页面123456
     </div>
 </template>
 

@@ -11,7 +11,7 @@ let router=new Router({
     mode:"hash",   //1、hash哈希:有#号；2、history历史：没有#号
     routes:[
         {
-            path:'/',
+            path:"/",
             name:"index",
             component:IndexPage
         },
