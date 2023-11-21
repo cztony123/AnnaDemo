@@ -1,94 +1,22 @@
 <template>
-    <div>
-        <el-table :data="tableData" style="width: 100%">
-            <el-table-column prop="date" label="日期" width="150"></el-table-column>
-            <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-            <el-table-column prop="province" label="省份" width="120"></el-table-column>
-            <el-table-column prop="city" label="市区" width="120"></el-table-column>
-            <el-table-column prop="address" label="地址" width="300"></el-table-column>
-            <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
-            <el-table-column label="操作">
-                <template slot-scope="scope">
-                    <el-button type="text" @click="btn(scope.row)">编辑</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
+    <div class="app">
+        
 
-        <Edit ref="Edit"></Edit>
+     
     </div>
 </template>
 
 <script>
-import Edit from './contents/edit.vue'
-export default {
-    components: {
-        Edit
-    },
-    data() {
-        return {
-            dialogVisible: false,
-            tableData: [{
-                date: '2016-05-03',
-                name: '张三',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-02',
-                name: '李四',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-04',
-                name: '小胡',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-01',
-                name: '大神',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-08',
-                name: '王小虎',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-06',
-                name: '王小虎',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }, {
-                date: '2016-05-07',
-                name: '王小虎',
-                province: '上海',
-                city: '普陀区',
-                address: '上海市普陀区金沙江路 1518 弄',
-                zip: 200333
-            }],
-
-        };
-    },
-    methods: {
-        btn(scope){
-            this.$refs.Edit.open(scope)
-        },
-    }
+export default{
+    name:"app"
 }
+
 </script>
 
 
 
 
-<style scoped></style>>
+<style scoped>
+
+
+</style>>
