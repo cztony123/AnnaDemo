@@ -17,7 +17,9 @@
         name:"index",
         methods:{
             goPage(url){
-                this.$router.replace(url)
+                this.$router.replace(url).catch(err => {
+                    console.log(err)
+                })
             },
             goBack(){
                 this.$router.go(-1)
