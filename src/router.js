@@ -29,7 +29,7 @@ let router=new Router({
         {
             path:"/goods",
             name:"goods",
-            component:GoodsPage,
+            component:()=>import('./pages/goods/index.vue'),
             children:[
                 {
                     path:"item",
