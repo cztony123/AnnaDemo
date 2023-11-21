@@ -5,6 +5,7 @@
             <li><router-link to="news">新闻页面</router-link></li>
             <li><span @click="goPage('/goods/item')">产品页面</span></li>
             <li><span @click="goPage('/login')">会员登录</span></li>
+            <li><span @click="goParams()">测试params传参</span></li>
         </ul>
     </div>
 </template>
@@ -15,6 +16,9 @@
         methods:{
             goPage(url){
             this.$router.push(url)
+            },
+            goParam(){
+                this.$router.push({name:"params",params:{id:10}})
             }
         }
     }

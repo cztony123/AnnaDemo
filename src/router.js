@@ -29,27 +29,36 @@ let router=new Router({
         {
             path:"/goods",
             name:"goods",
+            redirect:"/goods/item",
             component:()=>import('./pages/goods/index.vue'),
-            children:[
-                {
-                    path:"item",
-                    name:"goodsItem",
-                    component:()=>import('./pages/goods/item.vue')
-                },
-                {
-                    path:"content",
-                    name:"goodsContent",
-                    component:()=>import('./pages/goods/content.vue')
-                },
-                {
-                    path:"review",
-                    name:"goodsReview",
-                    component:()=>import('./pages/goods/review.vue')
-                }
-               
-                
-            ]
+                children:[
+                    {
+                        path:"item",
+                        name:"goodsItem",
+                        component:()=>import('./pages/goods/item.vue')
+                    },
+                    {
+                        path:"content",
+                        name:"goodsContent",
+                        component:()=>import('./pages/goods/content.vue')
+                    },
+                    {
+                        path:"review",
+                        name:"goodsReview",
+                        component:()=>import('./pages/goods/review.vue')
+                    },
+                ]
         },
+        {
+            path:"/params",
+            name:"params",
+            component:()=>import('./pages/params/index.vue') 
+    } ,
+    {
+        path:"/news/details",
+        name:"newsDetails",
+        component:()=>import('./pages/news/details.vue') 
+    }
         
     ]
 });
