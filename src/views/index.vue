@@ -1,9 +1,5 @@
 <template>
     <div class="app">
-        
-
-        <!-- <Edit ref="Edit"></Edit> -->
-
         <div>
             咿呀咿呀呦！！！
         </div>
@@ -12,7 +8,7 @@
 
 <script>
 export default{
-    name:"app"
+    
 }
 
 </script>
