@@ -1,6 +1,9 @@
 <template>
     <div>
-        新闻页面123456
+        <ul>
+            <li>新闻页面123456</li>
+            <li>新闻内容</li>
+        </ul>
     </div>
 </template>
 
