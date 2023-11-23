@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import IndexPage from '../pages/index/index.vue'
-import NewsPage from '../pages/news/index.vue'
-import GoodsPage from '../pages/goods/index.vue'
-import GoodsItemPage from '../pages/goods/item.vue'
-import GoodsContentPage from '../pages/goods/content.vue'
-import GoodsEvaluatePage from '../pages/goods/evaluate.vue'
-import GoodsParamsPage from '../pages/params/index.vue'
-import GoodsDetailsPage from '../pages/news/details.vue'
 
 
 
@@ -18,47 +10,80 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component:IndexPage,
+    //路由懒加载
+    component:()=>import('../pages/index/index.vue'),
+    beforeEach:(to,from,next)=>{ 
+      next()  
+    } 
   },
   {
     path: '/news',
     name: 'news',
-    component:NewsPage,
+    component:()=>import('../pages/news/index.vue')
   },
   {
     path: '/goods',
     name: 'goods',
+    // meta:{auth:true},
     redirect:"/goods/item",
-    component:GoodsPage,
+    component:()=>import('../pages/goods/index.vue'),
     children:[
       {
         path: 'item',
         name: 'goodsItem',
-        component:GoodsItemPage,
+        // meta:{auth:true},
+        component:()=>import('../pages/goods/item.vue'),
       },
       {
         path: 'content',
         name: 'goodsContent',
-        component:GoodsContentPage,
+        // meta:{auth:true},
+        component:()=>import('../pages/goods/content.vue'),
       },
       {
         path: 'evaluate',
         name: 'GoodsEvaluate',
-        component:GoodsEvaluatePage,
+        // meta:{auth:true},
+        component:()=>import('../pages/goods/evaluate.vue'),
       },
     ]
   },
   {
     path: '/params',
     name: 'params',
-    component:GoodsParamsPage,
+    // meta:{auth:true},
+    component:()=>import('../pages/params/index.vue'),
   },
   {
     path: '/news/details',
     name: 'newsDetails',
-    component:GoodsDetailsPage,
+    // meta:{auth:true},
+    component:()=>import('../pages/news/details.vue'),
   },
-  
+  {
+    path: '/login',
+    name: 'login',
+    meta:{auth:true},
+    component:()=>import('../pages/login/index.vue'),
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    meta:{auth:true},
+    component:()=>import('../pages/profile/index.vue'),
+  },
+  {
+    path: '/cssify',
+    name: 'cssify',
+    // meta:{auth:true},
+    component:()=>import('../pages/goods/cssify.vue'),
+  },
+  {
+    path: '/skip',
+    name: 'skip',
+    // meta:{auth:true},
+    component:()=>import('../pages/skip/skip.vue'),
+  },
   // {
   //   path: '/about',
   //   name: 'about',
@@ -73,6 +98,21 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
+
+router.beforeEach((to,from,next)=>{
+  console.log(to.meta.auth);
+  if(to.meta.auth){
+    console.log(Boolean(localStorage['isLogin']));
+      if(Boolean(localStorage['isLogin'])){
+          return next()
+      }else{
+        return next('/login')
+    }
+  } else {
+      next()
+  }
+});
+
 
 export default router

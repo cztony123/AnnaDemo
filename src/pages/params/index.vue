@@ -1,5 +1,5 @@
 <template>
-    <div>params接收参数：</div>
+    <div>params接收参数:</div>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
         <ul>
             <li @click="goPage('/news/details?id=1')">新闻1</li>
             <li @click="goPage('/news/details?id=2')">新闻2</li>
-            <li v-cloak@click="goPage('/news/details?id=3')">新闻3</li>
+            <li @click="goPage('/news/details?id=3')">新闻3</li>
         </ul>
     </div>
 </template>
