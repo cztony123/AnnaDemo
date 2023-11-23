@@ -14,8 +14,8 @@
         },
         methods:{
             outLogin(){
-                // localStorage.clear();
-                // console.log(this.$router.replace('/login') )
+                localStorage.clear();
+                this.$router.replace('/login')
             }
         }
     }

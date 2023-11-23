@@ -24,8 +24,8 @@
                     alert("请输入密码")
                     return;
                 }else{
-                    localStorage["username"]=this.username,
-                    localStorage["isLogin"]=true,
+                    localStorage["username"] = this.username,
+                    localStorage["isLogin"] = 'true',
                     this.$router.replace("/")
                 }
             }
