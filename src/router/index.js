@@ -13,6 +13,7 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
 Vue.use(VueRouter)
 
 const routes = [
+<<<<<<< HEAD
   {
     path: '/',
     name: 'index',
@@ -89,14 +90,94 @@ const routes = [
     meta:{auth:true},
     component: () => import('../pages/skip/skip.vue'),
   },
+=======
+    {
+        path: '/',
+        name: 'index',
+        //路由懒加载
+        component: () => import('../pages/index/index.vue'),
+        beforeEach: (to, from, next) => {
+            next()
+        }
+    },
+    {
+        path: '/news',
+        name: 'news',
+        component: () => import('../pages/news/index.vue')
+    },
+    {
+        path: '/goods',
+        name: 'goods',
+        // meta:{auth:true},
+        redirect: "/goods/item",
+        component: () => import('../pages/goods/index.vue'),
+        children: [
+            {
+                path: 'item',
+                name: 'goodsItem',
+                // meta:{auth:true},
+                component: () => import('../pages/goods/item.vue'),
+            },
+            {
+                path: 'content',
+                name: 'goodsContent',
+                // meta:{auth:true},
+                component: () => import('../pages/goods/content.vue'),
+            },
+            {
+                path: 'evaluate',
+                name: 'goodsEvaluate',
+                // meta:{auth:true},
+                component: () => import('../pages/goods/evaluate.vue'),
+            },
+        ]
+    },
+    {
+        path: '/params',
+        name: 'params',
+        // meta:{auth:true},
+        component: () => import('../pages/params/index.vue'),
+    },
+    {
+        path: '/news/details',
+        name: 'newsDetails',
+        // meta:{auth:true},
+        component: () => import('../pages/news/details.vue'),
+    },
+    {
+        path: '/login',
+        name: 'login',
+        // meta:{auth:true},
+        component: () => import('../pages/login/index.vue'),
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: () => import('../pages/profile/index.vue'),
+        meta: { auth: true },
+    },
+    {
+        path: '/cssify',
+        name: 'cssify',
+        // meta:{auth:true},
+        component: () => import('../pages/goods/cssify.vue'),
+    },
+    {
+        path: '/skip',
+        name: 'skip',
+        // meta:{auth:true},
+        component: () => import('../pages/skip/skip.vue'),
+    },
+>>>>>>> cc470629dd612f24b35d6b91f29d206240fe23d6
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 });
 
+<<<<<<< HEAD
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
     if (Boolean(localStorage['isLogin'])) {
@@ -111,3 +192,18 @@ router.beforeEach((to, from, next) => {
 
 
 export default router;
+=======
+router.beforeEach((to,from,next)=>{
+    if(to.meta.auth){
+        if(Boolean(localStorage['isLogin'])){
+            next();
+        }else{
+            next("/login");
+        }
+    }else {
+        next();
+    }
+});
+
+export default router
+>>>>>>> cc470629dd612f24b35d6b91f29d206240fe23d6

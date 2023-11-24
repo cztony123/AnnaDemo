@@ -26,7 +26,7 @@ export default {
     methods: {
         goPage(url) {
             // console.log(url)
-            this.$router.push(url);
+            this.$router.push(url).catch(err =>{})
         },
         goParam(){
            this.$router.push({name:"params",params:{id:10}})

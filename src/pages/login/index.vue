@@ -23,6 +23,13 @@
                 if(this.passwrod=== ""){
                     alert("请输入密码")
                     return;
+<<<<<<< HEAD
+=======
+                }else{
+                    localStorage["username"] = this.username,
+                    localStorage["isLogin"] = 'true',
+                    this.$router.replace("/")
+>>>>>>> cc470629dd612f24b35d6b91f29d206240fe23d6
                 }
                 localStorage["username"]=this.username,
                 localStorage["isLogin"]=true,
