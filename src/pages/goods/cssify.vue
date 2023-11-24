@@ -14,23 +14,23 @@
         methods:{
             goPage(url){
                 this.$router.replace('url')
-                // setTimeout(()=>{
-                //     this.$router.replace(url)
-                // },30)
+                setTimeout(()=>{
+                    this.$router.replace(url)
+                },30)
             }
         },
         created(){
-            // console.log(this.$route.query.id)
+            console.log(this.$route.query.id)
         },
-        beforeRouteUpdate(to,from,next){ 
-            console.log(to) 
-            next()
+        // beforeRouteUpdate(to,from,next){ 
+        //     console.log(to.query.id) 
+        //     next()
 
-            //在当前路由改变，但是该组件被复用是调用 
-            //举例来说，对于一个带有动态参数的路径/foo/:id,在/foo/1和/foo/:2之间跳转的时候， 
-            //由于会渲染同样的Foo组件，因此组件实例会被复用，而这个钩子就会在这个情况下被调用， 
-            //可以访问组件实例'this' 
-        }, 
+        //     //在当前路由改变，但是该组件被复用是调用 
+        //     //举例来说，对于一个带有动态参数的路径/foo/:id,在/foo/1和/foo/:2之间跳转的时候， 
+        //     //由于会渲染同样的Foo组件，因此组件实例会被复用，而这个钩子就会在这个情况下被调用， 
+        //     //可以访问组件实例'this' 
+        // }, 
     }
 </script>
 

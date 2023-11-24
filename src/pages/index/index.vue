@@ -6,7 +6,7 @@
             <li @click="goPage('/goods')"><span>产品页面</span></li>
             <li @click="goPage('/login')"><span>会员登录</span></li>
             <li @click="goParam()"><span>测试params传参</span></li>
-            <li @click="goPage('/profile')"><span>个人资料</span></li>
+            <li @click="goPage('/profile ')"><span>个人资料</span></li>
             <li @click="goPage('/cssify?id=1')"><span>产品分类</span></li>
         </ul>
         <div class="box" v-if="isShow"><span @click="isShow=false">X</span></div>
@@ -40,13 +40,14 @@ export default {
         // 不！能！获取组件实例"this" 
         // 因为当前守卫执行前，组件实例还没有创建 
     },
-    // beforeRouteLeave(to,from,next){
-    //     if(this.isShow){
-    //         next(false)
-    //     }else{
-    //         next()
-    //     }
-    // }
+    beforeRouteLeave(to,from,next){
+        if(this.isShow){
+            alert("关闭窗口跳转页面")
+            next(false)
+        }else{
+            next()
+        }
+    }
 }
 </script>
 
